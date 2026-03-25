@@ -412,6 +412,7 @@ int main()
   cout<<result<<endl;
   return 0;
 }
+
 //反转数组（指针交换）
 #include<iostream>
 using namespace std;
