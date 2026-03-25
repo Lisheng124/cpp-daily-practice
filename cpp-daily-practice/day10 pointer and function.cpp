@@ -446,4 +446,5 @@ for (int i = 0; i < n; i++) {
     cout << num[i] << " "; 
 }
 cout << endl;
+return 0；
 }
