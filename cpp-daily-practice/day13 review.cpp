@@ -91,6 +91,51 @@ int main()
   cout<<endl;
   return 0;
 }
+#include <iostream>
+#include <climits>
+
+using namespace std;
+
+// 判断是否回文的函数
+// 返回 true 表示是回文，false 表示不是
+bool isPalindrome(int *p, int n) {
+    int *left = p;
+    int *right = p + n - 1;
+
+    while (left < right) {
+        if (*left != *right) {
+            return false; // 只要发现一对不相等，直接判定为“不是”
+        }
+        left++;
+        right--;
+    }
+    return true; // 如果全部对比完成都没退出，说明是回文
+}
+
+int main() {
+    int num[100];
+    int n;
+
+    cout << "Please enter the number of elements: ";
+    if (!(cin >> n) || n <= 0) {
+        cout << "Invalid input!" << endl;
+        return 1;
+    }
+
+    cout << "Please enter " << n << " numbers: ";
+    for (int i = 0; i < n; i++) {
+        cin >> num[i];
+    }
+
+    // 调用判断函数
+    if (isPalindrome(num, n)) {
+        cout << "Result: It is a palindrome!" << endl;
+    } else {
+        cout << "Result: Not a palindrome." << endl;
+    }
+
+    return 0;
+}
 /*#include <iostream>
 #include <string>
 #include <climits>
