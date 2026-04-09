@@ -279,7 +279,6 @@ void getTopStudents(vector<Student>& s, Student &first, Student &second) {
     }
 }
 
-
 /*void getFirstSecondScore(int &first,int &second,vector<int>&num,int&n)
 {
   first=INT_MIN;
