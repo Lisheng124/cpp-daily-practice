@@ -1,38 +1,3 @@
-vector排序（降序）
-#include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
-using namespace std;
-int main()
-{
-  int n;
-  cout<<"How many numbers:";
-  cin>>n;
-  
-  vector<int>num(n);  
-  cout<<"Please enter the number:"<<endl;
-  for(int i=0;i<n;i++)
-  {
-    cin>>num[i];
-  }
-  
-  cout<<"Arrange number:"<<endl;
-  for(int i=0;i<n-1;i++)
-  {
-    for(int j=0;j<n-1-i;j++)
-    {
-      if(num[j]<num[j+1])
-      swap(num[j],num[j+1]);
-    }
-  }
-  
-  for(int i=0;i<n;i++)
-  {
-    cout<<num[i]<<" ";
-  }
-  return 0;
-}
 查找最大值和最小值
 #include<iostream>
 #include<string>
@@ -164,7 +129,7 @@ else
 }
   return 0;
 }
-*/
+
 6️⃣ 找所有重复元素
 #include<iostream>
 #include<string>
@@ -224,7 +189,7 @@ int main()
   
   return 0;
 }
-/*
+
 版本 A：向前看（使用 i + 1）🔍
 // 注意：循环终点是 n - 1，防止 num[i+1] 越界
 for (int i = 0; i < n - 1; i++) {
@@ -249,4 +214,109 @@ for (int i = 1; i < n; i++) {
         }
     }
 }
+
+
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<climits>
+using namespace std;
+int main()
+{
+  int n;
+  cout<<"How many number:";
+  cin>>n;
+  
+  cout<<"Please enter the number:"<<endl;
+  vector<int>num(n);
+  for(int i=0;i<n;i++)
+  {
+    cin>>num[i];
+  }
+  
+  int target;
+  cout<<"Please enter the target number"<<endl;
+  cin>>target;
+
+  vector<int> result; // 用来存放过滤后的数字
+for(int i = 0; i < n; i++) {
+    if (num[i] != target) { 
+        result.push_back(num[i]); 
+    }
+}
+  
+  for(int i=0;i<result.size();i++)
+  {
+    cout<<result[i]<<" ";
+  }
+  return 0;
+}
 */
+//vector统计-平均数&大于平均数
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<climits>
+using namespace std;
+int main()
+{
+  double n;
+  cout<<"How many number:";
+  cin>>n;
+  
+  cout<<"Please enter the number:"<<endl;
+  vector<int>num(n);
+  for(int i=0;i<n;i++)
+  {
+    cin>>num[i];
+  }
+  
+  double sum=0;
+  for(int i=0;i<n;i++)
+  {
+    sum+=num[i];
+  }
+  double avg=sum/n;
+  cout<<"Average is "<<avg<<endl;
+cout << "More than average:" << endl;
+for(int i = 0; i < n; i++) {
+    if (num[i] > avg) { 
+        cout << num[i] << " ";
+    }
+}
+vector<int> result; 
+for (int i = 0; i < n; i++) {
+    if (num[i] > avg) {
+       result.push_back(num[i]);
+    }
+}
+
+for(int i = 0; i < result.size(); i++) {
+    // 为了防止 j+1 越界，j 应该小于什么？
+    for(int j = 0; j < result.size() - 1; j++) { 
+        if(result[j] > result[j+1]) {
+            swap(result[j], result[j+1]);
+        }
+    }
+}
+cout << "More than average (sorted): " << endl;
+for(int i = 0; i < result.size(); i++) { // 终点是新数组的大小
+    cout << result[i] << " ";
+}
+ /*for(int i=0;i<result.size();i++)
+  {
+    for(int j=0;j<result.size();j++)
+    {
+      if(num[j]>num[j+1])
+      {
+        swap(num[j],num[j+1]);
+      }
+    }
+  }
+  
+  for(int i=0;i<n;i++)
+  */
+  return 0;
+}
